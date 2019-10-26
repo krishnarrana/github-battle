@@ -7,8 +7,8 @@
     "build": "webpack",
     "start": "webpack-dev-server"
   },
-  "babel":{
-    "presets":[
+  "babel": {
+    "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
     ]
@@ -28,6 +28,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0"
   }

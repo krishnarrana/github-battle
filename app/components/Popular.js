@@ -1,41 +1,46 @@
 import React from 'react';
-function LanguagesNav({ selected, onUpdateLanguage }) {
-    const languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python']
+import PropTypes from 'prop-types'
+function LangaugesNav({ selected, onUpdateLangauge }) {
+    const langauges = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python']
     return (
         <ul className={'flex-center'}>
-            {languages.map((language) => (
-                <li key={language}>
+            {langauges.map((langauge) => (
+                <li key={langauge}>
                     <button className='btn-clear nav-link'
-                        style={language === selected ? { color: '#f00' } : null}
+                        style={langauge === selected ? { color: '#f00' } : null}
                         onClick={() => {
-                            onUpdateLanguage(language)
+                            onUpdateLangauge(langauge)
                         }}
                     >
-                        {language}
+                        {langauge}
                     </button>
                 </li>
             ))}
         </ul>
     )
 }
+LangaugesNav.propTypes = {
+    selected: PropTypes.string.isRequired,
+    onUpdateLangauge: PropTypes.func.isRequired
+}
 export default class Popular extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            selectedLanguage: 'All'
+            selectedLangauge: 'All'
         }
-        this.updateLanguage = this.updateLanguage.bind(this)
+        this.updateLangauge = this.updateLangauge.bind(this)
     }
-    updateLanguage(selectedLanguage) {
+    updateLangauge(selectedLangauge) {
         this.setState({
-            selectedLanguage
+            selectedLangauge
         })
     }
     render() {
-        const { selectedLanguage } = this.state;
+        const { selectedLangauge } = this.state;
         return (
             <>
-                <LanguagesNav selected={selectedLanguage} onUpdateLanguage={this.updateLanguage} />
+                <LangaugesNav selected={selectedLangauge} onUpdateLangauge={this.updateLangauge} />
             </>
         )
     }
